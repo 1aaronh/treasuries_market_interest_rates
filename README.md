@@ -145,7 +145,7 @@ The following examples were trained with a 50% training set:
 
 All three Neural Nets struggled to make predictions:
 
-![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/3MO_rate_rnn.png)
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_3MO_rate.png)
 
 Regular Neural Net
 

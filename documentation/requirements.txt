@@ -1,0 +1,5 @@
+Installations for Correct Python Environment:
+
+pip install quandl      - Third party API for retrieving Treasury Yield Curve information.
+
+pip install traces      - API for conveniently managing and interpolating unevenly spaced Time Series data.

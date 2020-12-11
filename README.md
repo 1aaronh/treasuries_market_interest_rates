@@ -24,8 +24,8 @@ These two datasets were joined together for analysis and modeling. Exploration w
     - 03_final_model_script
 
 * data: - Two directories:
-    - csv_exports - Results of data pre-processing for purposes of EDA and modeling
-    - Treasuries - Native Excel files that constitute original data that was analyzed. Each file groups transaction records by quarter. These files were retrieved from The New York Federal Reserve website page for [historical transaction data](https://www.newyorkfed.org/markets/OMO_transaction_data.html)
+    - **csv_exports** - Results of data pre-processing for purposes of EDA and modeling
+    - **Treasuries** - Native Excel files that constitute original data that was analyzed. Each file groups transaction records by quarter. These files were retrieved from The New York Federal Reserve website page for [historical transaction data](https://www.newyorkfed.org/markets/OMO_transaction_data.html)
 
 * documentation: Presentation slides and Python environment requirements
 
@@ -146,16 +146,19 @@ The following examples were trained with a 50% training set:
 All three Neural Nets struggled to make predictions:
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/3MO_rate_rnn.png)
+
 Regular Neural Net
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_3mo_mape.png)
+
 Note the large scale of the y-axis: This is a very poor MAPE score that corresponds to the bad predictions we can see from the line plot.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg3mo.png)
+
 Neural Net with Dropout (60% keeping probability):
 The regularization is making a bad situation worse with the 3 month target.
 
-![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_3mo_regdrop_mape.png)
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn3mo_regdrop_mape.png)
 Very large erors that again validate what we see on the line plot.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_regular_3MO.png)
@@ -178,7 +181,7 @@ The y-axis is no longer at an outrageous scale and the Test MAPE loss hovers bel
 Neural Net with Dropout (60% keeping probability):
 The regularization is over-correcting but still shows an interesting prediction pattern.
 
-![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr_mape.png)
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr_mape_.02keep.png)
 y-axis is still at a reasaonable scale but with much larger MAPE percentages.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_30yr_preds.png)

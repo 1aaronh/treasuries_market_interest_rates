@@ -136,7 +136,7 @@ Keras was used for developing the Neural Nets and the library's TimeSeriesGenera
 
 The three Neural Nets were a simple Recursive Neural Net, a Regularized Neural Net, and a Long Short Term Memory Network (LSTM). The regularization used for the second was 1 Dropput layer with a keeping probability of 60%. This regularization would often over-correct the better predictions and make the bad predictions worse. The LSTM was developed for experimentation and delivered interesting results even when incorrect. Another point of departure for further study will be to explore the capabilities of an LSTM in this learning environment.
 
-The number of epochs choses for training each Neural Net was 15. In general, all the Neural Nets did not have close to accurate predictions of the 3 month interest rates but seemed to have surprisingly better results when the target was changed to the 30 year rate.
+The number of epochs choses for training each Neural Net was 15. Many trials were conducted for all three Neural Nets with the same target and parameters. The predictions and metrics varied modestly in the different trials but still followed a consistent pattern of consistently good or sonsistently poor results. in In general, all the Neural Nets did not have close to accurate predictions of the 3 month interest rates but seemed to have surprisingly better results when the target was changed to the 30 year rate.
 
 ### Predictions & Metrics by Target:
 The following examples were trained with a 50% training set:

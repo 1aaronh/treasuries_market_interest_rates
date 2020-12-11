@@ -73,25 +73,25 @@ One DataFrame, exclusively for Exploratory Data Analysis, was exported as a csv 
 ---
 The different Primary Dealers (counterparties) were the focus of the data exploration. Specific attention was paid to the counterparties that participated in the most transactions with the NYFed during the time period of the dataset. 
 
-![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/top10_transactions.png)
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/top10_transactions.png)
 Top 10 most active counterparties by number of transactions
 
 Scatterplots were produced to measure the Time to Marurity and Coupon rates on the treasuries that were selected for purchase by the NYFed during QE.
 
-![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/citi_allsales.png)
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/citi_allsales.png)
 In this example, the NYFed is concentrating its purchases at three maturity ranges. What is notable is the high coupon for the cluster of Treasury purchases in the middle. We might be able to infer that te Fed was aiming to lower the high rates quoted on those Treasuries at that time.
 
 The basic pattern of interest rate changes over time was explored. Below are the Time series charts of the two targets:
 
-![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/rate_3MO.png)
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/rate_3MO.png)
 3 month interest rate
 
-![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/rate_30yr.png)
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/rate_30yr.png)
 30 year interest rate
 
 Interesting patterns were uncovered using a rolling average of 1500 rows to measure average time to marurity of Treasuries being sold to the NYFed by the top 5 counterparties:
 
-![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/images/rolling_avg_chart.png)
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/rolling_avg_chart.png)
 
 # Modeling & Predictions:
 ---
@@ -168,23 +168,23 @@ All three Neural Nets struggled to make predictions:
 
 The results here were much more encouraging. The regularization was not necessary and led to poor results. The LSTM made curious errors as well. The basic RNN however stands out with a surprisingly good performance.
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/rnn30yr.png)
+ ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/rnn30yr.png)
     Regular RNN: An outstanding performance when seen visually.
 
-  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/rnn_mape30yr.png)
+  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/rnn_mape30yr.png)
     The y-axis is no longer at an outrageous scale and the Test MAPE loss hovers below 4 percent.
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/rnn_reg30yr.png)
+ ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/rnn_reg30yr.png)
     Neural Net with Dropout (60% keeping probability):
     The regularization is over-correcting but still shows an interesting prediction pattern.
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/rnn_reg30yr_mape.png)
+ ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/rnn_reg30yr_mape.png)
     y-axis is still at a reasaonable scale but with much larger MAPE percentages.
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/lstm_30yr_preds.png)
+ ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/lstm_30yr_preds.png)
     LSTM: A decent pattern of predicting with a notable interruption.
 
-  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/lstm_30yr_mape.png)
+  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/tree/master/images/lstm_30yr_mape.png)
     The spiked pattern for MAPE was unique to the LSTM and can be explored further.
     The MAPE scores remain in a good range, between 2-6%.
 

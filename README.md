@@ -91,7 +91,7 @@ The basic pattern of interest rate changes over time was explored. Below are the
 
 Interesting patterns were uncovered using a rolling average of 1500 rows to measure average time to marurity of Treasuries being sold to the NYFed by the top 5 counterparties:
 
-![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/rolling_avg_chart.png)
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/images/rolling_avg_chart.png)
 
 # Modeling & Predictions:
 ---

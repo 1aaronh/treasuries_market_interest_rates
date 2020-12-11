@@ -159,12 +159,15 @@ Neural Net with Dropout (60% keeping probability):
 The regularization is making a bad situation worse with the 3 month target.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn3mo_regdrop_mape.png)
+
 Very large erors that again validate what we see on the line plot.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_regular_3MO.png)
+
 LSTM: Poor results as well but with an interesting consistency. LSTM parameters and architecture will need to be explored further.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm3mo_mape.png)
+
 Note again the top of the y-axis: The scale of our errors and loss function here is quite literally off the chart.
 
 **30 Year Interest Rate**
@@ -172,22 +175,27 @@ Note again the top of the y-axis: The scale of our errors and loss function here
 The results here were much more encouraging. The regularization was not necessary and led to poor results. The LSTM made curious errors as well. The basic RNN however stands out with a surprisingly good performance.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn30yr.png)
+
 Regular RNN: An outstanding performance when seen visually.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_mape30yr.png)
 The y-axis is no longer at an outrageous scale and the Test MAPE loss hovers below 4 percent.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr.png)
+
 Neural Net with Dropout (60% keeping probability):
 The regularization is over-correcting but still shows an interesting prediction pattern.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr_mape_.02keep.png)
+
 y-axis is still at a reasaonable scale but with much larger MAPE percentages.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_30yr_preds.png)
+
 LSTM: A decent pattern of predicting with a notable interruption.
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_30yr_mape.png)
+
 The spiked pattern for MAPE was unique to the LSTM and can be explored further.
 The MAPE scores remain in a good range, between 2-6%.
 

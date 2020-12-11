@@ -149,22 +149,27 @@ All three Neural Nets struggled to make predictions:
 
 Regular Neural Net
 
+
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_3mo_mape.png)
 
 Note the large scale of the y-axis: This is a very poor MAPE score that corresponds to the bad predictions we can see from the line plot.
+
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg3mo.png)
 
 Neural Net with Dropout (60% keeping probability):
 The regularization is making a bad situation worse with the 3 month target.
 
+
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn3mo_regdrop_mape.png)
 
 Very large erors that again validate what we see on the line plot.
 
+
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_regular_3MO.png)
 
 LSTM: Poor results as well but with an interesting consistency. LSTM parameters and architecture will need to be explored further.
+
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm3mo_mape.png)
 
@@ -178,21 +183,26 @@ The results here were much more encouraging. The regularization was not necessar
 
 Regular RNN: An outstanding performance when seen visually.
 
+
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_mape30yr.png)
 The y-axis is no longer at an outrageous scale and the Test MAPE loss hovers below 4 percent.
+
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr.png)
 
 Neural Net with Dropout (60% keeping probability):
 The regularization is over-correcting but still shows an interesting prediction pattern.
 
+
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr_mape_.02keep.png)
 
 y-axis is still at a reasaonable scale but with much larger MAPE percentages.
 
+
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_30yr_preds.png)
 
 LSTM: A decent pattern of predicting with a notable interruption.
+
 
 ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_30yr_mape.png)
 

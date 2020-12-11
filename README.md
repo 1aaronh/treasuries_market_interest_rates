@@ -108,29 +108,29 @@ The X and y arrays were established and Train Test Split was conducted, often wi
 MSE was used as a metric with both the Neural Nets and VAR model for basic comparisons and general "sanity checks." IMPORTANT NOTE: The targets are in a very small range. The interest rates are in whole number percentage values that are all inside a range of 0-5. This very small scale makes MSE a challenging metric to inperpret as even "large" errors may appear small in absolute terms. Many runs of a model delivered extremely low MSE scores likely because of this issue. Using RMSE would only compound this problem and this metric was not thoroughly considered.
 
 **Mean Absolute Percentage Error**
- MAPE was discovered to be a useful solution to the issue of measuring error from a target with a very small range. MAPE displays the errors of a model as standardized percentages and the results are much easier to interpret both numerically and visually. MAPE functions deliver errors as whole number percentages (e.g. MAPE of 25 is a 25% error). 
+MAPE was discovered to be a useful solution to the issue of measuring error from a target with a very small range. MAPE displays the errors of a model as standardized percentages and the results are much easier to interpret both numerically and visually. MAPE functions deliver errors as whole number percentages (e.g. MAPE of 25 is a 25% error). 
  
- The function for calculating MAPE used here was done by hand and is the combination of a [Stack Overflow submission](https://stackoverflow.com/questions/47648133/mape-calculation-in-python) and the assistance of Dan Wilhelm in solving the infinite error problem that can occur with MAPE when the data has zero values. Scikit Learn has a MAPE method in a recent updated version that can be installed for future model evaluation.
+The function for calculating MAPE used here was done by hand and is the combination of a [Stack Overflow submission](https://stackoverflow.com/questions/47648133/mape-calculation-in-python) and the assistance of Dan Wilhelm in solving the infinite error problem that can occur with MAPE when the data has zero values. Scikit Learn has a MAPE method in a recent updated version that can be installed for future model evaluation.
 
- MAPE was chosen as the loss function for each Neural Net during development. A model that preforms well will minimize its MAPE score.
+MAPE was chosen as the loss function for each Neural Net during development. A model that preforms well will minimize its MAPE score.
 
- ## Summary of VAR Model:
+## Summary of VAR Model:
 
 **Model Preparation**
- Augmented Dicky Fuller tests were conducted on each explanatory feature and potential target to test for stationarity. All features were interpreted as stationary EXCEPT for the interest rates with a maturity of 1 year or longer. First differencing was performed on each non-statioary feature before fitting the VAR model. Statsmodels API was the library used for the VAR model and associated methods. The Multivarite targets selected for the VAR model were all Yield Curve interest rate features except for the seven year.
+Augmented Dicky Fuller tests were conducted on each explanatory feature and potential target to test for stationarity. All features were interpreted as stationary EXCEPT for the interest rates with a maturity of 1 year or longer. First differencing was performed on each non-statioary feature before fitting the VAR model. Statsmodels API was the library used for the VAR model and associated methods. The Multivarite targets selected for the VAR model were all Yield Curve interest rate features except for the seven year.
 
- **Model Results & Forecasts**
- The VAR forecasts were reverse differenced for interpretability though this did not improve results. Differencing the targets suffered from the same problem of data falling into a very small range of whole umber percentages. As a result, each first differenced (and reverse differenced) value was miniscule and the model struggled to identify any signal for predicting future values.
+**Model Results & Forecasts**
+The VAR forecasts were reverse differenced for interpretability though this did not improve results. Differencing the targets suffered from the same problem of data falling into a very small range of whole umber percentages. As a result, each first differenced (and reverse differenced) value was miniscule and the model struggled to identify any signal for predicting future values.
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/var_forecast_mean.png)
- First three target features where VAR model is only forecasting the mean
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/var_forecast_mean.png)
+First three target features where VAR model is only forecasting the mean
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/var_30yr.png)
- Reverse differenced VAR forecasts of the 30 year interest rate. The model is only identifying a general trend downward and is clearly struggling to make any accurate forecasts.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/var_30yr.png)
+Reverse differenced VAR forecasts of the 30 year interest rate. The model is only identifying a general trend downward and is clearly struggling to make any accurate forecasts.
 
- To verify the poor performance of the VAR model, the model delivered a MAPE of 104.36%
+To verify the poor performance of the VAR model, the model delivered a MAPE of 104.36%
 
- ## Summary of Neural Nets & Results:
+## Summary of Neural Nets & Results:
 
 Keras was used for developing the Neural Nets and the library's TimeSeriesGenerator class was used to facilitate model predictions from a chosen "lookback" period. The "length" parameter for TimeSeriesGenerator was set at 53. This means that the Neural Nets look back at the previous 53 rows of the in the dataset to predict the next 1. 53 was chosen for the length becasue it is the approximate number of rows needed to look back one 24 hour period (calculating from a roughly 27 minute interval for each row).
 
@@ -145,48 +145,48 @@ The following examples were trained with a 50% training set:
 
 All three Neural Nets struggled to make predictions:
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/3MO_rate_rnn.png)
-    Regular Neural Net
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/3MO_rate_rnn.png)
+Regular Neural Net
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_3mo_mape.png)
-    Note the large scale of the y-axis: This is a very poor MAPE score that corresponds to the bad predictions we can see from the line plot.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_3mo_mape.png)
+Note the large scale of the y-axis: This is a very poor MAPE score that corresponds to the bad predictions we can see from the line plot.
 
-  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg3mo.png)
-    Neural Net with Dropout (60% keeping probability):
-    The regularization is making a bad situation worse with the 3 month target.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg3mo.png)
+Neural Net with Dropout (60% keeping probability):
+The regularization is making a bad situation worse with the 3 month target.
 
-  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_3mo_regdrop_mape.png)
-    Very large erors that again validate what we see on the line plot.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_3mo_regdrop_mape.png)
+Very large erors that again validate what we see on the line plot.
 
-  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_regular_3MO.png)
-    LSTM: Poor results as well but with an interesting consistency. LSTM parameters and architecture will need to be explored further.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_regular_3MO.png)
+LSTM: Poor results as well but with an interesting consistency. LSTM parameters and architecture will need to be explored further.
 
-  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm3mo_mape.png)
-    Note again the top of the y-axis: The scale of our errors and loss function here is quite literally off the chart.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm3mo_mape.png)
+Note again the top of the y-axis: The scale of our errors and loss function here is quite literally off the chart.
 
 **30 Year Interest Rate**
 
 The results here were much more encouraging. The regularization was not necessary and led to poor results. The LSTM made curious errors as well. The basic RNN however stands out with a surprisingly good performance.
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn30yr.png)
-    Regular RNN: An outstanding performance when seen visually.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn30yr.png)
+Regular RNN: An outstanding performance when seen visually.
 
-  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_mape30yr.png)
-    The y-axis is no longer at an outrageous scale and the Test MAPE loss hovers below 4 percent.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_mape30yr.png)
+The y-axis is no longer at an outrageous scale and the Test MAPE loss hovers below 4 percent.
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr.png)
-    Neural Net with Dropout (60% keeping probability):
-    The regularization is over-correcting but still shows an interesting prediction pattern.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr.png)
+Neural Net with Dropout (60% keeping probability):
+The regularization is over-correcting but still shows an interesting prediction pattern.
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr_mape.png)
-    y-axis is still at a reasaonable scale but with much larger MAPE percentages.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_reg30yr_mape.png)
+y-axis is still at a reasaonable scale but with much larger MAPE percentages.
 
- ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_30yr_preds.png)
-    LSTM: A decent pattern of predicting with a notable interruption.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_30yr_preds.png)
+LSTM: A decent pattern of predicting with a notable interruption.
 
-  ![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_30yr_mape.png)
-    The spiked pattern for MAPE was unique to the LSTM and can be explored further.
-    The MAPE scores remain in a good range, between 2-6%.
+![](https://git.generalassemb.ly/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/lstm_30yr_mape.png)
+The spiked pattern for MAPE was unique to the LSTM and can be explored further.
+The MAPE scores remain in a good range, between 2-6%.
 
 # Conclusions & Next Steps:
 ---

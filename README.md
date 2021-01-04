@@ -73,7 +73,7 @@ One DataFrame, exclusively for Exploratory Data Analysis, was exported as a csv 
 ---
 The different Primary Dealers (counterparties) were the focus of the data exploration. Specific attention was paid to the counterparties that participated in the most transactions with the NYFed during the time period of the dataset. 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/top10_transactions.png)
+![](./images/top10_transactions.png)
 
 Top 10 most active counterparties by number of transactions
 

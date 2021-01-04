@@ -74,19 +74,23 @@ One DataFrame, exclusively for Exploratory Data Analysis, was exported as a csv 
 The different Primary Dealers (counterparties) were the focus of the data exploration. Specific attention was paid to the counterparties that participated in the most transactions with the NYFed during the time period of the dataset. 
 
 ![](https://github.com/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/top10_transactions.png)
+
 Top 10 most active counterparties by number of transactions
 
 Scatterplots were produced to measure the Time to Marurity and Coupon rates on the treasuries that were selected for purchase by the NYFed during QE.
 
 ![](https://github.com/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/citi_allsales.png)
+
 In this example, the NYFed is concentrating its purchases at three maturity ranges. What is notable is the high coupon for the cluster of Treasury purchases in the middle. We might be able to infer that te Fed was aiming to lower the high rates quoted on those Treasuries at that time.
 
 The basic pattern of interest rate changes over time was explored. Below are the Time series charts of the two targets:
 
 ![](https://github.com/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rate_3MO.png)
+
 3 month interest rate
 
 ![](https://github.com/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rate_30yr.png)
+
 30 year interest rate
 
 Interesting patterns were uncovered using a rolling average of 1500 rows to measure average time to marurity of Treasuries being sold to the NYFed by the top 5 counterparties:
@@ -123,9 +127,11 @@ Augmented Dicky Fuller tests were conducted on each explanatory feature and pote
 The VAR forecasts were reverse differenced for interpretability though this did not improve results. Differencing the targets suffered from the same problem of data falling into a very small range of whole umber percentages. As a result, each first differenced (and reverse differenced) value was miniscule and the model struggled to identify any signal for predicting future values.
 
 ![](https://github.com/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/var_forecast_mean.png)
+
 First three target features where VAR model is only forecasting the mean
 
 ![](https://github.com/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/var_30yr.png)
+
 Reverse differenced VAR forecasts of the 30 year interest rate. The model is only identifying a general trend downward and is clearly struggling to make any accurate forecasts.
 
 To verify the poor performance of the VAR model, the model delivered a MAPE of 104.36%
@@ -185,6 +191,7 @@ Regular RNN: An outstanding performance when seen visually.
 
 
 ![](https://github.com/1aaronh/ahume_capstone_DSI-cc13/blob/master/images/rnn_mape30yr.png)
+
 The y-axis is no longer at an outrageous scale and the Test MAPE loss hovers below 4 percent.
 
 

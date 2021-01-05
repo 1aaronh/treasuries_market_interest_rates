@@ -79,23 +79,23 @@ Top 10 most active counterparties by number of transactions
 
 Scatterplots were produced to measure the Time to Marurity and Coupon rates on the treasuries that were selected for purchase by the NYFed during QE.
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/citi_allsales.png)
+![](./images/citi_allsales.png)
 
 In this example, the NYFed is concentrating its purchases at three maturity ranges. What is notable is the high coupon for the cluster of Treasury purchases in the middle. We might be able to infer that te Fed was aiming to lower the high rates quoted on those Treasuries at that time.
 
 The basic pattern of interest rate changes over time was explored. Below are the Time series charts of the two targets:
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rate_3MO.png)
+![](./images/rate_3MO.png)
 
 3 month interest rate
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rate_30yr.png)
+![](./images/rate_30yr.png)
 
 30 year interest rate
 
 Interesting patterns were uncovered using a rolling average of 1500 rows to measure average time to marurity of Treasuries being sold to the NYFed by the top 5 counterparties:
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rolling_avg_chart.png)
+![](./images/rolling_avg_chart.png)
 
 # Modeling & Predictions:
 ---
@@ -126,11 +126,11 @@ Augmented Dicky Fuller tests were conducted on each explanatory feature and pote
 **Model Results & Forecasts**
 The VAR forecasts were reverse differenced for interpretability though this did not improve results. Differencing the targets suffered from the same problem of data falling into a very small range of whole umber percentages. As a result, each first differenced (and reverse differenced) value was miniscule and the model struggled to identify any signal for predicting future values.
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/var_forecast_mean.png)
+![](./images/var_forecast_mean.png)
 
 First three target features where VAR model is only forecasting the mean
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/var_30yr.png)
+![](./images/var_30yr.png)
 
 Reverse differenced VAR forecasts of the 30 year interest rate. The model is only identifying a general trend downward and is clearly struggling to make any accurate forecasts.
 
@@ -151,17 +151,17 @@ The following examples were trained with a 50% training set:
 
 All three Neural Nets struggled to make predictions:
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rnn_3mo_rate.png)
+![](./images/rnn_3mo_rate.png)
 
 Regular Neural Net
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rnn_3mo_mape.png)
+![](./images/rnn_3mo_mape.png)
 
 Note the large scale of the y-axis: This is a very poor MAPE score that corresponds to the bad predictions we can see from the line plot.
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rnn_reg3mo.png)
+![](./images/rnn_reg3mo.png)
 
 Neural Net with Dropout (60% keeping probability):
 The regularization is making a bad situation worse with the 3 month target.
@@ -172,12 +172,12 @@ The regularization is making a bad situation worse with the 3 month target.
 Very large erors that again validate what we see on the line plot.
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/lstm_regular_3MO.png)
+![](./images/lstm_regular_3MO.png)
 
 LSTM: Poor results as well but with an interesting consistency. LSTM parameters and architecture will need to be explored further.
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/lstm3mo_mape.png)
+![](./images/lstm3mo_mape.png)
 
 Note again the top of the y-axis: The scale of our errors and loss function here is quite literally off the chart.
 
@@ -185,12 +185,12 @@ Note again the top of the y-axis: The scale of our errors and loss function here
 
 The results here were much more encouraging. The regularization was not necessary and led to poor results. The LSTM made curious errors as well. The basic RNN however stands out with a surprisingly good performance.
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rnn30yr.png)
+![](./images/rnn30yr.png)
 
 Regular RNN: An outstanding performance when seen visually.
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rnn_mape30yr.png)
+![](./images/rnn_mape30yr.png)
 
 The y-axis is no longer at an outrageous scale and the Test MAPE loss hovers below 4 percent.
 

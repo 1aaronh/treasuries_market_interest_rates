@@ -211,7 +211,7 @@ y-axis is still at a reasaonable scale but with much larger MAPE percentages.
 LSTM: A decent pattern of predicting with a notable interruption.
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/lstm_30yr_mape.png)
+![](./images/lstm_30yr_mape.png)
 
 The spiked pattern for MAPE was unique to the LSTM and can be explored further.
 The MAPE scores remain in a good range, between 2-6%.

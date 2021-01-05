@@ -167,7 +167,7 @@ Neural Net with Dropout (60% keeping probability):
 The regularization is making a bad situation worse with the 3 month target.
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rnn3mo_regdrop_mape.png)
+![](./images/rnn3mo_regdrop_mape.png)
 
 Very large erors that again validate what we see on the line plot.
 
@@ -195,18 +195,18 @@ Regular RNN: An outstanding performance when seen visually.
 The y-axis is no longer at an outrageous scale and the Test MAPE loss hovers below 4 percent.
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rnn_reg30yr.png)
+![](./images/rnn_reg30yr.png)
 
 Neural Net with Dropout (60% keeping probability):
 The regularization is over-correcting but still shows an interesting prediction pattern.
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/rnn_reg30yr_mape_.02keep.png)
+![](./images/rnn_reg30yr_mape_.02keep.png)
 
 y-axis is still at a reasaonable scale but with much larger MAPE percentages.
 
 
-![](https://github.com/1aaronh/treasuries_market_interest_rates/blob/master/images/lstm_30yr_preds.png)
+![](./images/lstm_30yr_preds.png)
 
 LSTM: A decent pattern of predicting with a notable interruption.
 
